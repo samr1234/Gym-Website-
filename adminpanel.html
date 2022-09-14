@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content form{
+            display:flex;
+            flex-direction: column;
+            width:20rem;
+            
+
+            
+          
+        }
+    </style>
+</head>
+
+<body>
+    <h1>upload gallery video</h1>
+    <form method="POST" action="video.php" enctype="multipart/form-data">
+        <!-- <input type="id" name="id"  placeholder="enter id"/> -->
+        <!-- <input type="text" name="info"  placeholder="enter info"/> -->
+        <input type="file" name="uploadfile" value="upload file" />
+        <div>
+            <button type="submit" name="upload">UPLOAD</button>
+        </div>
+    </form>
+    <h1>upload gallery image</h1>
+    <form method="POST" action="image.php" enctype="multipart/form-data">
+        <!-- <input type="id" name="id"  placeholder="enter id"/> -->
+
+        <input type="file" name="uploadfile" value="upload file" />
+        <div>
+            <button type="submit" name="upload">UPLOAD</button>
+        </div>
+    </form>
+    <h1>delete video record</h1>
+    <form action="delete.php" method="POST">
+        <input type="number" name="id" id="id" placeholder="enter id">
+
+        <button type="submit" name="deletevideo">delete record</button>
+    </form>
+    </form>
+    <h1>delete image record</h1>
+    <form action="delete.php" method="POST">
+        <input type="number" name="id" id="id" placeholder="enter id">
+        
+        <button type="submit" name="deleteimage">delete record</button>
+    </form>
+    <h1>upload trainer record</h1>
+    <div id="content">
+        <form method="POST" action="upload.php" enctype="multipart/form-data">
+            <!-- <input type="id" name="id"  placeholder="enter id"/> -->
+            <input type="text" name="name" placeholder="enter name" />
+            <input type="text" name="age" placeholder="enter age" />
+            <input type="text" name="gender" placeholder="enter gender" />
+            <input type="text" name="workexp" placeholder="enter workexp" />
+            <input type="text" name="timings" placeholder="enter timings" />
+            <input type="text" name="achievements" placeholder="enter achievements" />
+            <input type="text" name="qualification" placeholder="enter qualification" />
+            <input type="file" name="uploadfile" value="upload file" />
+
+            <div>
+                <button type="submit" name="upload">UPLOAD</button>
+            </div>
+        </form>
+    </div>
+    <h1>update trainer record</h1>
+    <div id="content">
+        <form method="POST" action="update.php" enctype="multipart/form-data">
+            <input type="id" name="id"  placeholder="enter id"/>
+            <input type="text" name="name" placeholder="enter name" />
+            <input type="text" name="age" placeholder="enter age" />
+            <input type="text" name="gender" placeholder="enter gender" />
+            <input type="text" name="workexp" placeholder="enter workexp" />
+            <input type="text" name="timings" placeholder="enter timings" />
+            <input type="text" name="achievements" placeholder="enter achievements" />
+            <input type="text" name="qualification" placeholder="enter qualification" />
+            <!-- <input type="file" name="uploadfile" value="upload file" /> -->
+
+          
+                <button type="submit" name="update">UPDATE</button>
+          
+        </form>
+    </div>
+</body>
+
+</html>

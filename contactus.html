@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Document</title>
+    <!-- <script src="index.js"></script> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+        :root {
+            --orange: #23b6db;
+        }
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .2s linear;
+            text-transform: capitalize;
+            outline: none;
+            text-decoration: none;
+        }
+
+        *::selection {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        .btn {
+            cursor: pointer;
+            border: .2rem solid var(--orange);
+            color: var(--orange);
+            background: none;
+            padding: .5rem 3rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 0;
+            font-size: 2rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--orange);
+            z-index: -1;
+            clip-path: circle(0% at 0% 0%);
+            transition: .3s;
+        }
+
+        .btn:hover::before {
+            clip-path: circle(100%);
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        .heading {
+            display: inline-block;
+            color: #333;
+            margin: 2rem 0;
+            padding: 1rem 0;
+            padding-top: 8rem;
+            font-size: 3rem;
+            border-bottom: .2rem solid var(--orange);
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 2rem 3rem;
+        }
+
+        header .logo {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        header .logo span {
+            color: var(--orange);
+        }
+
+        header .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .navbar ul li {
+            margin: 0 1rem;
+        }
+
+        header .navbar ul li a {
+            color: rgb(247, 234, 234);
+            font-size: 2rem;
+        }
+
+        header .navbar ul li a.active,
+        header .navbar ul li a:hover {
+            color: var(--orange);
+        }
+
+        header #menu {
+            font-size: 3rem;
+            color: var(--orange);
+            cursor: pointer;
+            display: none;
+        }
+
+        header.header-active {
+            background: #fff;
+            box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+        }
+
+        header.header-active .logo,
+        header.header-active .navbar a {
+            color: #333;
+        }
+
+        .navbar ul ul {
+            display: none;
+            position: absolute;
+
+        }
+
+        .navbar ul li:hover>ul {
+            display: block;
+            padding: 6px;
+            margin: 3px;
+
+
+
+        }
+
+        .home {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(gallery2.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            /* clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); */
+        }
+
+        /* #video{
+    min-height:100vh;
+     background-size: cover;
+} */
+
+        .navbar ul ul li:hover {
+            background-color: antiquewhite;
+        }
+
+        .home h1 {
+            font-size: 6rem;
+            color: rgb(243, 224, 224);
+            text-align: center;
+            text-shadow: 0 .3rem .5rem #000;
+            padding: 0 1rem;
+            /* text-transform: uppercase; */
+        }
+
+        .home .btn {
+            box-shadow: 0 .3rem .5rem #000;
+            color: #fff;
+        }
+
+        .home span {
+            color: var(--orange);
+        }
+
+        .container {
+            /* margin-top: 1.5rem; */
+            margin-bottom: 1.5rem;
+            margin-left: 1rem;
+            /* min-width: 100vh; */
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container1 h5{
+            padding-bottom:2rem;
+        }
+
+
+
+.category{
+ margin-right:9rem;
+}
+        .category #name {
+            /* display:inline-block; */
+            padding-bottom: 1.2rem;
+            padding-top: 0.4rem;
+            padding-right: 32.7rem;
+            /* margin-top: 2rem; */
+            margin-left: 4.5rem;
+            margin-bottom: 2rem;
+           
+            font-size: 1.8rem;
+            /* text-align: right; */
+        }
+
+        .container form input {
+            padding-bottom: 1.2rem;
+            padding-top: 0.4rem;
+            padding-right: 37rem;
+            margin-top: 1.5rem;
+            margin-left: 4.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+
+        }
+
+        textarea {
+            padding-bottom: 1.2rem;
+            padding-top: 0.4rem;
+            padding-right: 21.8rem;
+            margin-top: 2rem;
+            margin-left: 4.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+
+        }
+
+        .head1 {
+            font-size: 3.5rem;
+            text-align: center;
+            padding-top: 0rem;
+            color: var(--orange);
+
+
+
+        }
+
+        .head2 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding-top: 1rem;
+
+
+        }
+
+        .magic {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            /* align-items: center; */
+        }
+
+        /* .container1{
+            background:url(form1.jpg);
+        } */
+        .container1 {
+            margin-right: 3rem;
+        }
+
+        .container1 h5 {
+            font-size: 2rem;
+            text-align: center;
+            padding-top: 0.6rem;
+        }
+
+        /* .container1 img {
+            margin-top: 3rem;
+            height: 30rem;
+            width: 65rem;
+        } */
+
+        form div .button {
+            padding: 0.8rem 25.8rem;
+            color: var(--orange);
+            /* margin:0;  */
+            /* display:flex;
+            justify-content: center; */
+            /* padding:3rem 14.3rem; */
+            /* text-align:center; */
+        }
+
+
+
+
+        @media (max-width:1066px) {
+
+            html {
+                font-size: 55%;
+            }
+
+            header #menu {
+                display: block;
+            }
+
+            header .navbar {
+                position: fixed;
+                top: -100rem;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                background: #fff;
+                border-top: .1rem solid rgba(0, 0, 0, .3);
+            }
+
+            header .navbar ul {
+                flex-flow: column;
+                padding: 2rem 0;
+            }
+
+            header .navbar ul li {
+                margin: 1rem 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            header .navbar ul li a {
+                font-size: 2.5rem;
+                color: #333;
+                display: block;
+            }
+
+            header .navbar.nav-toggle {
+                top: 8rem;
+                opacity: 1;
+            }
+
+            .register form {
+                width: 90%;
+            }
+
+        }
+
+
+        @media (max-width:500px) {
+
+            html {
+                font-size: 50%;
+            }
+
+            .home h1 {
+                font-size: 5rem;
+            }
+
+            .register form .inputBox input {
+                width: 100%;
+            }
+            .container{
+                width:100%;
+            }
+            .footer{
+                width:100%;
+            }
+
+        }
+
+        form .data {
+            display: none;
+        }
+
+        form .category1 {
+
+            margin-top: 1.5rem;
+            margin-left: 4.5rem;
+            margin-bottom: 1rem;
+
+
+        }
+
+        form .category1 .category2 {
+            padding-bottom: 1.2rem;
+            padding-top: 0.4rem;
+            padding-right: 36rem;
+            font-size: 1.8rem;
+        }
+        /* .container1{
+            height:70rem;
+            width:400rem;
+        } */
+        .recaptcha{
+            margin-top: 1.2rem;
+            margin-left: 4.5rem;
+            margin-bottom: 1rem;
+
+        }
+        .head{
+            color:#23b6db;
+            text-align:center;
+            margin-top:2rem;
+            font-size:3rem;
+            padding-bottom:0.5rem;
+         
+           
+        }
+        .head span{
+             border-bottom:2px solid #23b6db;
+        }
+        .footer{
+            /* min-width: 100vh; */
+    color:#eee;
+    background:rgb(39, 38, 38);
+    text-align: center;
+    padding:1rem 1rem;
+    font-size: 3rem;
+}
+
+.footer a{
+    color:var(--orange);
+}
+
+.footer a:hover{
+    color:#fff;
+}
+.share1{
+        padding:2rem;
+        
+    }
+    .share1 a{
+        font-size:4rem;
+margin:3rem;
+    }
+    #TRAINER #file{
+        border:1px solid grey;
+        display:inline-block;
+        width:50%;
+        padding-top:0.5rem;
+        padding-bottom:0.8rem;
+        padding-right:57.2rem;
+        padding-left:0.4rem;
+
+
+    }
+    @media(max-width:1240px){
+        .container1{
+            display:none;
+        }
+    }
+    @media(max-width:500px){
+        .home{
+            min-height:68vh;
+        }
+        .category #name{
+            padding-right:9.5rem;
+            margin-left: 7.5rem;
+            /* margin-top:0.05rem; */
+        }
+       .container form input{
+        margin-left: 7.5rem;
+        padding-right:12.5rem;
+        margin-top:0.7rem;
+        margin-right:0.5rem;
+       }
+       textarea{
+        padding-right:0rem;
+        margin-left:7.5rem;
+        margin-top:0.8rem;
+        margin-bottom:0.8rem;
+        margin-right:0.5rem;
+       }
+    form div .button{
+        padding:0.8rem 6rem;
+    }
+     .cap{
+        margin-left: 2.3rem;
+}
+.footer{
+    padding:0;
+}
+
+    }
+    
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <a href="#" class="logo"><span>BURN</span>FIT</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+          
+
+                <ul>
+
+                    <li><a class="active" href="http://localhost/upload_image/index1.php">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#service">service
+                      
+                <li><a href="#trainer">trainer</a></li>
+                <li><a href="#plan">plan</a></li>
+                <li><a href="http://localhost/upload_image/gallery.php#trainer">Gallery</a></li>
+                <li><a href="http://localhost/upload_image/contactus.html">contact Us</a></li>
+                <li><a href="http://localhost/upload_image/register.html">register</a></li>
+                <li><a href="http://localhost/upload_image/signup.html">Sign Up</a></li>
+                <li><a href="http://localhost/upload_image/feedback.php">Feedback</a></li>
+                </ul>
+          
+        </nav>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <h1><span>contact</span><BR> BurnFit Gym </h1>
+
+
+
+
+    </section>
+    <h1 class="head"><span>CONTACT US</span></h1>
+    <div class="magic">
+        <!-- <h1 class="head">Contact Us</h1> -->
+
+        <div class="container">
+
+            <form action="contactus.php" method="post">
+                <div class="category">
+                  <select name="department" id="name" name="category">
+                        <option value="DEPARTMENT">SELECT A DEPARTMENT</option>
+                        <option value="GENERAL">GENERAL</option>
+                        <!-- <option value="opel">MARKETING</option> -->
+                        <option value="CUSTOMER">CUSTOMER CARE</option>
+                        <option value="TRAINER">APPLY FOR TRAINER</option>
+                        <option value="FRANCHISE">INTERESTED IN FRANCHISE </option>
+                        <!-- <option value="audi">HR</option> -->
+                        <!-- <option value="audi">IT</option> -->
+                    </select>
+                </div>
+                <div id="DEPARTMENT" class="data">
+                    <input type="text" name="username" id="" placeholder="Enter name">
+
+                    <input type="number" name="contact" id="" placeholder="Enter Contact">
+                    <input type="email" name="email" id="" placeholder="Enter Email">
+
+                    <textarea name="message" id="" cols="36" rows="3" placeholder="Enter Message"></textarea>
+                    <div class="g-recaptcha recaptcha" data-sitekey="6Ld-Y8cbAAAAANtFm1HQGE1jHF-R5ZDLQQlSBO4Q"></div>
+                    <input type="submit" name="submit" value="Submit" class="button">
+
+                </div>
+            </form>
+            <form action="contactus.php" method="post">
+
+                <div id="GENERAL" class="data">
+                    <input type="text" name="username" id="" placeholder="Enter name">
+
+                    <input type="number" name="contact" id="" placeholder="Enter Contact">
+                    <input type="email" name="email" id="" placeholder="Enter Email">
+                    <textarea name="message" id="" cols="38" rows="5" placeholder="Enter Message"></textarea>
+                    <div class="g-recaptcha recaptcha" data-sitekey="6Ld-Y8cbAAAAANtFm1HQGE1jHF-R5ZDLQQlSBO4Q"></div>
+                    <input type="submit" name="submit1" value="Submit" class="button">
+                </div>
+            </form>
+            <form action="" method="post">
+
+                <div id="CUSTOMER"class="data">
+                    <input type="text" name="username" id="" placeholder="Enter name">
+
+                    <input type="number" name="contact" id="" placeholder="Enter Contact">
+                    <input type="email" name="email" id="" placeholder="Enter Email">
+                    
+                    <textarea name="address" id="" cols="38" rows="5" placeholder="Enter Message"></textarea>
+                    <div class="g-recaptcha recaptcha" data-sitekey="6Ld-Y8cbAAAAANtFm1HQGE1jHF-R5ZDLQQlSBO4Q"></div>
+                    <input type="submit" name="submit2" value="Submit" class="button">
+                </div>
+            </form>
+            <form action="contactus.php" method="post"  enctype="multipart/form-data">
+
+                <div id="TRAINER" class="data">
+                    <input type="text" name="username" id="" placeholder="Enter name">
+
+                    <input type="number" name="contact" id="" placeholder="Enter Contact">
+                    <input type="email" name="email" id="" placeholder="Enter Email">
+                    <textarea name="message" id="" cols="38" rows="5" placeholder="Description"></textarea>
+                    <input type="file" name="uploadfile" id="file" >
+                   
+                    <div class="g-recaptcha recaptcha" data-sitekey="6Ld-Y8cbAAAAANtFm1HQGE1jHF-R5ZDLQQlSBO4Q"></div>
+                    <input type="submit" name="submit3" value="Submit" class="button">
+                </div>
+            </form>
+            <form action="contactus.php" method="post">
+
+                <div id="FRANCHISE" class="data">
+                    <input type="text" name="username" id="" placeholder="Enter name">
+
+                    <input type="number" name="contact" id="" placeholder="Enter Contact">
+                    <input type="email" name="email" id="" placeholder="Enter Email"><br>
+                    <div class="category1">
+                        <select name="state" id="name" name="category1" class="category2">
+                            <option value="">SELECT STATE</option>
+                            <option value="">ANDAMAN & NICOBAR</option>
+                            <option value="">ANDHRA PRADESH</option>
+                            <option value="">ARUNACHAL PRADESH</option>
+                            <option value="">ASSAM</option>
+                            <option value="">BIHAR</option>
+                            <option value="">CHANDIGARH</option>
+                            <option value="">DAMAN & DIUE</option>
+                            <option value="">DELHI NCR</option>
+                            <option value="">GOA</option>
+                            <option value="">GUJRAT</option>
+                            <option value="">HARYANA</option>
+                            <option value="">HIMACHAL PRADESH </option>
+                            <option value="">JAMMU & KASHMIR</option>
+                            <option value="">JHARKHAND</option>
+                            <option value="">KARNATAKE</option>
+                            <option value="">KERALA</option>
+                            <option value="">LAKSHDWEEP</option>
+                            <option value="">MADHYA PRADESH</option>
+                            <option value="">MAHARASHTRA</option>
+                            <option value="">MANIPUR</option>
+                            <option value="">MEGHALYA</option>
+                            <option value="">MIZORAM</option>
+                            <option value="">NAGALAND</option>
+                            <option value="">ORISSA</option>
+                            <option value="">PONDICHEERY</option>
+                            <option value="">PUNJAB</option>
+                            <option value="">RAJASTHAN</option>
+                            <option value="">SIKKIM</option>
+                            <option value="">TAMIL NADU</option>
+                            <option value="">TELEGANA</option>
+                            <option value="">TRIPURA</option>
+                            <option value="">UTTAR PRADESH</option>
+                            <option value="">UTTARA KHAND</option>
+                            <option value="">WEST BENGAL</option>
+                        </select>
+                    </div>
+                    <input type="text" name="city" id="" placeholder="Enter City"><br>
+                    <textarea name="message" id="" cols="38" rows="5" placeholder="Enter Message"></textarea>
+                    <div class="g-recaptcha recaptcha" data-sitekey="6Ld-Y8cbAAAAANtFm1HQGE1jHF-R5ZDLQQlSBO4Q"></div>
+                    <input type="submit" name="submit4" value="Submit" class="button">
+                </div>
+            </form>
+           
+
+        </div>
+        <div class="container1" >
+            <h2 class="head1">GET IN TOUCH</h2>
+            <h4 class="head2">WE ARE ALWAYS READY TO HEAR FROM YOU</h4>
+            <h5>OUR TEAM IS ALWAYS READY TO HEAR FROM YOU. WE MAKE IT A POINT TO RESPOND WITHIN 24 HOURS ON WEEKDAYS AND
+                48 HOURS ON WEEKENDS.</h5>
+                <p class="cap"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54789.36644274799!2d75.86119676339287!3d30.87727697222621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a832e037c6697%3A0x7b480625220f5d77!2sBurn%20Gym%2C%20Jamalpur%2C%20Sec%2032%2C%20Ludhiana!5e0!3m2!1sen!2sin!4v1627469205408!5m2!1sen!2sin" width="600" height="465" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+        </div>
+    </div>
+ 
+    <section class="footer">
+    WE'D LOVE TO HEAR FROM YOU <a href="#"></a> 
+    <div class="share1">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="https://www.instagram.com/andreideiu_/" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+    </section>
+
+    <!-- footer section ends -->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="contactus.js"></script>
+
+   
+   
+</html>

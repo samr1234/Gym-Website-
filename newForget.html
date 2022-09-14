@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="newforgot.css">
+</head>
+<body>
+    <div class="cont">
+    <div class="form sign-in" >
+        <!-- <div class="container" style="border:2px solid grey; width:27rem; height:23rem; margin-left:5rem; border-radius: 3rem;"> -->
+        <h2 style="margin-top:0.3rem">Forgot Password</h2>
+        <br>
+        <label>
+          <!-- <span>Email Address</span> -->
+          <form action="newforgot.php" name="loginform" method="POST" onsubmit="return validateLoginForm()">
+            <input type="email" name="email" placeholder="Enter your Email">
+            <br>
+        </label>
+        <label>
+          <!-- <span>Password</span> -->
+          <input type="password" name="password" placeholder="Enter New Password">
+          <br>
+          <br>
+          <input type="password" name="confirmpassword" placeholder="Confirm Password">
+        </label>
+        <button class="submit" name="submit" type="submit">Submit</button>
+        </form>
+    <!-- </div> -->
+        <!-- <p class="forgot-pass">Forgot Password ?</p> -->
+        
+        <!-- <h4><button style="border:none; background:none" onclick="myFunction()"><a href="" style="text-decoration:none">Forgot Password ?</a></button></h4> -->
+      
+      </div>
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img-text m-up">
+  
+            <h1 class="heading" style="font-size: 1.7rem;"><span style="color: darkcyan;">BURNFIT</span> GYM</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2 style="font-size: 1.5rem;">Forgot Password?</h2>
+           
+  
+  
+         
+  
+          </div>
+          <div class="img-text m-in">
+            <h1 class="heading"><span style="color: darkcyan;">BURNFIT</span> GYM</h1>
+            <br>
+            <br>
+            <br>
+  
+          
+            
+          </div>
+          <!-- <div class="img-btn">
+            <span class="m-up">Sign Up</span>
+            <span class="m-in">Sign In</span>
+          </div>
+        </div> -->
+        <div class="form sign-up">
+          <h2>Sign Up</h2>
+  
+          <label>
+            <!-- <span>Name</span> -->
+            <form action="signup.php" name="myform" method="POST" onsubmit="return validateForm()">
+              <input type="text" name="name" placeholder="Name" id="username">
+          </label>
+          <label>
+            <!-- <span>Email</span> -->
+            <input type="email" name="email" placeholder="Email" id="email">
+          </label>
+          <label>
+  
+            <!-- <span>Password</span> -->
+            <input type="password" name="password" placeholder="Password" id="password">
+          </label>
+          <label>
+            <!-- <span>Confirm Password</span> -->
+            <input type="password" name="confirmpassword" placeholder="Confirm Password">
+          </label>
+          <button type="submit" name="submit" class="submit">Sign Up Now</button>
+          </form>
+        </div>
+      </div>
+      </div>
+</body>
+<script type="text/javascript" src="signup1.js"></script>
+  <script type="text/javascript" src="validate.js"></script>
+  <script type="text/javascript" src="login.js"></script>
+</html>

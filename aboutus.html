@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fitness Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="index.js"></script>
+    <!-- custom css file link  -->
+    <style>
+        :root {
+            --orange: #aadb6a;
+        }
+
+        * {
+            /* font-family: 'Open Sans', sans-serif; */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .2s linear;
+            text-transform: capitalize;
+            outline: none;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 2rem 3rem;
+        }
+
+        header .logo {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        header .logo span {
+            color: var(--orange);
+        }
+
+        header .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .navbar ul li {
+            margin: 0 1rem;
+        }
+
+        header .navbar ul li a {
+            color: rgb(247, 234, 234);
+            font-size: 2rem;
+        }
+
+        header .navbar ul li a.active,
+        header .navbar ul li a:hover {
+            color: var(--orange);
+        }
+
+        header #menu {
+            font-size: 3rem;
+            color: var(--orange);
+            cursor: pointer;
+            display: none;
+        }
+
+        header.header-active {
+            background: #fff;
+            box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+        }
+
+        header.header-active .logo,
+        header.header-active .navbar a {
+            color: #333;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        .home {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(Gym1.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            /* clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); */
+        }
+
+        .home h1 {
+            font-size: 6rem;
+            color: rgb(243, 224, 224);
+            text-align: center;
+            text-shadow: 0 .3rem .5rem #000;
+            padding: 0 1rem;
+            /* text-transform: uppercase; */
+        }
+
+        @media (max-width:1120px) {
+
+            html {
+                font-size: 55%;
+            }
+
+            header #menu {
+                display: block;
+            }
+
+            header .navbar {
+                position: fixed;
+                top: -100rem;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                background: #fff;
+                border-top: .1rem solid rgba(0, 0, 0, .3);
+            }
+
+            header .navbar ul {
+                flex-flow: column;
+                padding: 2rem 0;
+            }
+
+            header .navbar ul li {
+                margin: 1rem 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            header .navbar ul li a {
+                font-size: 2.5rem;
+                color: #333;
+                display: block;
+            }
+
+            header .navbar.nav-toggle {
+                top: 8rem;
+                opacity: 1;
+            }
+
+            .register form {
+                width: 90%;
+            }
+
+        }
+
+        /* @media (max-width:610px){
+header{
+width:90%;
+}
+}
+@media (max-width:570px){
+header{
+width:85%;
+}
+
+} */
+        @media (max-width:855px) {
+            .con2 {
+                display: none;
+            }
+        }
+
+
+        @media (max-width:500px) {
+
+            html {
+                font-size: 50%;
+            }
+
+            .home h1 {
+                font-size: 5rem;
+            }
+
+            .register form .inputBox input {
+                width: 100%;
+            }
+
+            .footer {
+                width: 100%;
+            }
+
+            .footer1 {
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            .con2 {
+                padding-left: 1rem;
+            }
+
+            .con3 {
+                padding-left: 1rem;
+            }
+
+            .footer #btn {
+                margin-right: 2rem;
+
+            }
+
+            .footer h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+        .box .btn:hover {
+            color: white;
+            background-color: #aadb6a;
+        }
+
+        .content .btn:hover {
+            color: white;
+
+
+        }
+
+        @media(max-width:1115px) {
+            #btn1 {
+                margin-left: -10px;
+            }
+
+            #footer1 {
+                font-size: 2rem;
+                margin-left: 1rem;
+            }
+
+            #footer2 {
+                margin-left: 2rem;
+                font-size: 3rem;
+                line-height: 3rem;
+            }
+        }
+        h1 span{
+            border-bottom:2.4px solid #aadb6a;
+        }
+        .footer1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color:white;
+    background:black;
+    min-height:80vh;
+    max-width:100%;
+    font-size:2rem;
+    padding-top:3rem;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+.con1{
+    padding-top:2rem;
+    display:inline-block;
+    width:33%;
+   /* padding-left:2rem; */
+    padding-right:1.5rem;
+    border-right:2px solid white;
+
+    height:40rem;
+}
+.con1 p{
+    padding-top:2rem;
+    line-height:3rem;
+    font-size:1.5rem;
+    color:rgb(194, 173, 173);
+    padding-left: 2rem;
+}
+
+.con2{
+    padding-top:2rem;
+    padding-right:6rem;
+    border-right:2px solid white;
+    height:40rem;
+}
+.con2 li {
+    list-style: none;
+    padding-top:0.7rem;
+    padding-bottom:0.1rem;
+
+    
+}
+.con2 li a {
+    color:rgb(194, 173, 173);
+
+    font-size:1.5rem;
+   
+}
+.con2 li a:hover{
+    color:var(--orange);
+}
+.con3{
+    padding-top:2rem;
+    padding-right:6rem;
+
+}
+.con3 h2,h4{
+    color:rgb(194, 173, 173);
+
+}
+.con1 h1{
+    padding-left:2rem;
+}
+.share1{
+    padding:2rem;
+   
+}
+.share1 a{
+    color:#aadb6a;
+    /* padding-right:6rem; */
+}
+.share1 a:hover{
+color:white;
+
+}
+.share1 a{
+    font-size:3rem;
+margin:1rem;
+}
+.con3 span{
+   padding-left:8rem; 
+}
+.con3 h1{
+    padding-left:1.7rem;
+}
+.con3 h4{
+   font-style: italic;
+   padding-left:3rem;
+   padding-top:1rem;
+   cursor:pointer;
+
+
+}
+.con3 h4:hover{
+    color:#aadb6a;
+}
+.div{
+min-height:10rem;
+background:black;
+text-align:center;
+color:white;
+font-size:2rem;
+color:rgb(194, 173, 173);
+
+}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header>
+
+        <a href="#" class="logo"><span>BURN</span>FIT</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <ul>
+
+                <li><a href="http://localhost/upload_image/index1.php">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#service">service
+
+                <li><a href="#trainer">trainer</a></li>
+                <li><a href="#plan">plan</a></li>
+                <li><a href="http://localhost/upload_image/gallery.php#trainer">Gallery</a></li>
+                <li><a href="http://localhost/upload_image/contactus.html">contact Us</a></li>
+                <li><a href="http://localhost/upload_image/register.html">register</a></li>
+                <li><a href="http://localhost/upload_image/signup.html">Sign Up</a></li>
+                <li><a href="http://localhost/upload_image/feedback.php">Feedback</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <section class="home" id="home">
+
+        <h1 style="font-size:5rem; color:#aadb6a">About Us</h1>
+
+
+
+    </section>
+    <h1 style="text-align: center; margin:2.5rem;font-size:4rem"><span>About us</span></h1>
+    <div class="content">
+        <div class="content1" style="display:flex; justify-content: space-between;">
+            <img style=" margin:6rem 3rem;width:47rem;height:40rem; cursor:pointer" src="guru mann.jpg" alt="" srcset="">
+            <p style="font-size:2rem; margin:9rem 3.5rem;line-height: 3rem;color:rgb(96, 97, 96)">we have <b>best trainer</b> which provide you best assistance during
+                your workout.we provide trainer posseses the knowledge,skill and ability necessary to design safe and
+                effective fitness program. we have all kind of trainers which help you to get your results very fast.
+                our Trainers also conduct a variety of assessments beginning with a preparticipation health-screening
+                and may also include assessments of posture and movement, flexibility, balance, core function,
+                cardiorespiratory fitness, muscular fitness, body composition, and skill-related parameters (e.g.,
+                power, agility, coordination, speed, and reactivity) to observe and gather relevant information needed
+                to develop an effective exercise program and support client goal attainment. </p>
+        </div>
+        <div class="content1" style="display:flex; justify-content: space-between;">
+
+            <p style="font-size:2rem; margin:12rem 3.5rem;cursor:pointer;line-height: 3rem;color:rgb(96, 97, 96)">Burnfit gym was <b>founded by lucifer morningstar </b> in 2021.our
+                gym is located in punjab.burnfit gym focus on making person to achieve their goals.our gym has an area
+                about 2000sqft.burnfit gym is privately owned. it is best gym for evry age of group. we have 12week
+                transformation challenge contest every 2months. it is prefferred gym for Athletes, Bodybuilders, The
+                Military And Fitness Enthusiasts. we are also opening our franchise next year.Most Importantly, burn Gym
+                Continues To Change Lives By Helping People Achieve Their Individual Potential. </p>
+            <img style=" margin:2rem 3rem;width:50rem;height:40rem;" src="tom.jpg" alt="" srcset="">
+        </div>
+        <div class="content1" style="display:flex; justify-content: space-between;">
+            <img style=" margin:3rem 3rem;width:50rem;height:40rem;cursor:pointer" src="1.jpg" alt="" srcset="">
+            <p style="font-size:2rem; margin:14rem 3.5rem;line-height: 3.3rem;color:rgb(96, 97, 96)">we use best and ecofriendly gym equipments which is best suited for our customers because it is the most important part of any fitness journey. we have all kind of machines and different machines for different muscle training. our equipments are full proffesional and branded. we can assure you if you join us you will never be never regret of that.</p>
+           
+        </div>
+        <section class="footer1">
+            <div class="con1">
+             <h1><span> BURNFIT</span> GYM</h1> 
+             <p>BurnFit Gym provides you the fitness solution <br>that's more personal, intelligent and encouraging<br> than ever before.</p> 
+            </div>
+            <div class="con2">
+                <h1><span1>QUICK</span1> LINKS</h1>
+                <li><a class="links" href="http://localhost/upload_image/mainindex.php">home</a></li>
+                     <li><a href="#about">about</a></li>
+                     <li><a href="#service">service
+                           
+                     <li><a href="#trainer">trainer</a></li>
+                     <li><a href="http://localhost/upload_image/gallery.php#trainer">Gallery</a></li>
+                     <li><a href="#plan">plan</a></li>
+                     <li><a href="http://localhost/upload_image/contactus.html">contact Us</a></li>
+                     <li><a href="http://localhost/upload_image/register.html">register</a></li>
+                     <li><a href="http://localhost/upload_image/signup.html">Sign Up</a></li>
+                     <li><a href="http://localhost/upload_image/feedback.php">Feedback</a></li>
+            </div>
+            <div class="con3">
+                <h1>FOLLOW US</h1>
+                <div class="share1">
+                     <a href="#" class="fab fa-facebook-f"></a>
+                     <a href="#" class="fab fa-twitter"></a>
+                     <a href="https://www.instagram.com/andreideiu_/" class="fab fa-instagram"></a>
+                     <a href="#" class="fab fa-linkedin"></a>
+                 </div>
+                 <h2>For Personal Training<br><span> Email US</span></h2>
+                 <h4>burnfitgym@gmail.com</h4>
+                
+             
+            </div>
+            </section>
+            
+         </section>
+             
+     <div class="div">
+     <p>© 2021 BurnFit Gym. All Rights Reserved<br>Designed by samridh sood</p>
+     </div>
+
+</html>

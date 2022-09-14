@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+        :root{
+    --orange:#aadb6a;
+}
+        *{
+  margin:0;
+  padding:0;
+  font-family: 'Open Sans', sans-serif;
+    margin:0; padding: 0;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    text-transform: capitalize;
+    outline: none;
+    text-decoration: none;
+  }
+  *::selection{
+    background:var(--orange);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+ body{
+       
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(regimg3.jpg) no-repeat;
+    margin-top:100px;
+    background-position:center;
+   background-size:cover;
+   font-family:sans-serif;
+    }
+    header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top:0; left: 0;
+    z-index: 1000;
+    padding:2rem 3rem;
+}
+
+header .logo{
+    font-size: 3rem;
+    color:#fff;
+}
+
+header .logo span{
+    color:var(--orange);
+}
+
+header .navbar ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .navbar ul li{
+    margin:0 1rem;
+}
+
+header .navbar ul li a{
+    color:rgb(247, 234, 234);
+    font-size: 2rem;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover{
+    color:var(--orange);
+}
+
+header #menu{
+    font-size: 3rem;
+    color:var(--orange);
+    cursor: pointer;
+    display: none;
+}
+
+header.header-active{
+    background:#fff;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+}
+
+header.header-active .logo,
+header.header-active .navbar a{
+    color:#333;
+}
+.navbar ul ul{
+    display:none;
+    position:absolute;
+    
+}
+
+.navbar ul li:hover >ul{
+    display:block;
+    padding:6px;
+    margin:3px;
+   
+   
+   
+}
+   .regform{
+    width:800px;
+    background-color:rgb(0,0,0,0.6);
+    margin:auto;
+    color:#FFFFFF;
+    padding:10px 0px 10px 0px;
+    text-align:center;
+    border-radius:15px 15px 0px 0px ;
+    }  
+  .main{
+      background-color:rgb(0,0,0,0.5);
+   width:800px;
+   margin:auto;}
+  
+  form{
+      padding:10px;
+      border:5px solid grey;
+      border-radius: 4rem;
+      margin-bottom:7rem;
+   
+  } 
+  
+  /* #name{
+       width:100%;
+    height:100px;
+    
+    }   */
+  /* .name{
+            margin-left:25px;
+   margin-top:30px;
+   width: 125px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;} */
+.firstname{
+       position: relative;
+       left: 144px;
+       padding: 0 160px;
+       /* top:-37px; */
+       margin: 2.5rem auto;
+       line-height: 40px;
+     
+       padding: 0 160px;
+       font-size: 16px;
+       text-align: center;
+       
+       }
+
+ 
+
+
+ .email{
+        position:relative;
+        left: 146px;
+       /* padding: 0 160px; */
+     margin: 2.5rem auto;
+     line-height: 40px;
+     width:518px;
+       
+
+
+     padding: 0 22px;
+     font-size: 16px;
+     color: #555;  
+     text-align: center;
+    }     
+ 
+  
+ .number{
+    position:relative;
+     left:144px;
+     /* top:-37px; */
+     margin: 2.5rem auto;
+     line-height: 40px;
+     width:518px;
+      
+     padding: 0 22px;
+     font-size: 16px;
+     color: #555;
+     text-align: center; 
+     }
+ 
+ 
+ .option{
+         position:relative;
+  left:145px;
+     /* top:-37px; */
+     margin: 2.5rem auto;
+     line-height: 40px;
+     width:516px;
+     height:40px;
+     
+     /* padding: 0 22px; */
+      padding-left:199px;
+     /* padding-right: */
+     font-size: 16px;
+     color: #555; 
+     outline:none;
+     overflow:hidden;
+     
+  }    
+  select option{
+      text-align: center;
+  }
+     .option option{
+                 font-size:18px;
+                 /* text-align: center; */
+       }
+       
+   #coustomer{
+                margin-left:25px;
+    color:white;
+    font-size:18px;
+    text-align: center;
+    
+      } 
+     .radio{
+         display:inline-block;
+   padding-right:0px;
+   font-size:25px;
+   margin-left:220px;
+   margin-top:15px;
+   color:white;
+   }
+  .radio input{
+              width:20px;
+     height:20px;
+     border-radius:50%;
+     cursor:pointer;
+     outline:none;
+   
+    } 
+    button{
+     background-color:#5e5d5d;
+     display:block;
+     margin-top:20px;
+     margin-left:350px;
+     margin-bottom:20px;
+
+     text-align:center;
+     border-radius:18px;
+     border:2px solid rgb(19, 158, 223);
+     padding:4px 23px;
+     outline:none;
+     color:rgb(19, 158, 223);
+     cursor:pointer;
+     transition:0.25px;
+     font-size:2rem;
+     text-transform: uppercase;
+    } 
+   button:hover{
+       color:white;
+                background-color:#353535;
+      }  
+      .regform span{
+          color:rgb(19, 158, 223);
+          font-size:3rem;
+      }
+    </style>
+</head>
+<body>
+    <header>
+
+        <a href="#" class="logo"><span>BURN</span>FIT</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <ul>
+
+                <li><a  href="http://localhost/upload_image/index1.php">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#service">service
+                      
+                <li><a href="#trainer">trainer</a></li>
+                <li><a href="#plan">plan</a></li>
+                <li><a href="http://localhost/upload_image/gallery.php#trainer">Gallery</a></li>
+                <li><a href="http://localhost/upload_image/contactus.html">contact Us</a></li>
+                <li><a href="http://localhost/upload_image/register.html">register</a></li>
+                <li><a href="http://localhost/upload_image/signup.html">Sign Up</a></li>
+                <li><a href="http://localhost/upload_image/feedback.php">Feedback</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class="regform">
+        <h1><span style="color:#aadb6a">
+JOIN TODAY</span></h1>
+</div>
+<div class="main">
+    
+        <form action="register.php" method="POST">
+            <div id="name">
+            
+<input class="firstname" type="text" name="name" placeholder="Enter Name"><br>
+                <!-- <label class="firstlabel">first name</label> -->
+                <!-- <input class="lastname" type="text" name="last_name"><br> -->
+                <!-- <label class="lastlabel">last name</label> -->
+            </div>
+
+<select class="option" name="subject">
+    <option disabled="disabled" selected="selected">--Choose occupation--</option>
+    <option>STUDENT</option>
+    <option>BUSINESSMAN</option>
+    <option>JOB</option>
+</select>
+<h2 class="name">
+</h2>
+<input class="email" type="email" name="email"  placeholder="Enter Email">>
+           
+
+
+<input class="number" type="number" name="phone"  placeholder="Enter Contact">>
+          
+    
+    
+           
+
+<select class="option" name="subject1">
+                <option  selected="selected">--Choose Plan--</option>
+                <option>BASIC</option>
+                <option>STANDARD</option>
+                <option>PREMIUM</option>
+            </select>
+    
+            <h2 id="coustomer">
+Are you beginner?</h2>
+<label class="radio">
+                <input class="radio-one" type="radio" checked="checked" value="yes" name="rdiobtn">
+                <span class="checkmark"></span>
+                Yes
+            </label>
+    
+            <label class="radio">
+                <input class="radio-two" type="radio" value="no" name="rdiobtn">
+                <span class="checkmark"></span>
+                No
+            </label>
+    
+            <button style="color:#88eb06; border-color: greenyellow;" type="submit" name="submit">Submit</button>
+    
+    
+        </form>
+</div>
+</body>
+<script src="index.js"></script>
+</html>
